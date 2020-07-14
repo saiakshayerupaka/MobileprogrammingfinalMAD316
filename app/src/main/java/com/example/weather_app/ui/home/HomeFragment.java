@@ -23,6 +23,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.weather_app.Api;
+import com.example.weather_app.Location;
 import com.example.weatherapp.Api;
 import com.example.weatherapp.CustomAdapter;
 import com.example.weatherapp.DayWeather;
@@ -59,6 +61,36 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
 
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Api.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+
+
+        Api api = retrofit.create(Api.class);
+        Call<Location> call;
+        call = api.getMontrel();
+
+        if(getArguments()!=null) {
+
+            if (getArguments().getString("city").equals("montreal")) {
+                call = api.getMontrel();
+            } else if (getArguments().getString("city").equals("newyork")) {
+                call = api.getNewYork();
+            } else if (getArguments().getString("city").equals("toronto")) {
+                call = api.getToronto();
+
+            }
+            else if (getArguments().getString("city").equals("Vancouver")) {
+                call = api.getVancouver();
+
+            }
+            else if (getArguments().getString("city").equals("Mumbai")) {
+                call = api.getMumbai();
+
+            }
+        }
 
         
     }
