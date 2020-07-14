@@ -15,9 +15,9 @@
         android:theme="@style/AppTheme">
         <activity android:name="com.example.weather_app.DayWeather"></activity>
         <activity
-            android:name=".Main"
+            android:name="com.example.weather_app.Main"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
