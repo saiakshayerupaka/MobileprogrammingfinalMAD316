@@ -82,14 +82,7 @@ public class HomeFragment extends Fragment {
                 call = api.getToronto();
 
             }
-            else if (getArguments().getString("city").equals("Vancouver")) {
-                call = api.getVancouver();
 
-            }
-            else if (getArguments().getString("city").equals("Mumbai")) {
-                call = api.getMumbai();
-
-            }
         }
 
         
