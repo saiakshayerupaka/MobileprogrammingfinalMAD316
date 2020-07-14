@@ -7,17 +7,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#f5f5f5"
-            android:orientation="vertical">
 
         <ImageView
             android:layout_width="80dp"
             android:id="@+id/weather_icon"
             android:layout_gravity="center"
-            android:layout_margin="30dp"
+            android:layout_margin="20dp"
             android:layout_height="80dp"/>
 
         <TextView
@@ -27,7 +22,7 @@
             android:textColor="#000"
             android:id="@+id/city"
             android:gravity="center"
-            android:textSize="22dp"/>
+            android:textSize="20dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -37,8 +32,11 @@
             android:id="@+id/weather"
             android:gravity="center"
             android:textSize="16dp"/>
-        </LinearLayout>
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="#EEE"></LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -87,7 +85,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Max Temp"
+                    android:text="Temp"
                     android:textColor="#aaa"
                     android:gravity="center"
                     android:textSize="16dp"/>
@@ -112,7 +110,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Wind Speed"
+                    android:text="Max Temp"
                     android:textColor="#aaa"
                     android:gravity="center"
                     android:textSize="16dp"/>
@@ -188,17 +186,17 @@
 
         </LinearLayout>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-android:gravity="center_horizontal|center_vertical"
-    android:orientation="vertical">
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Close"
-        android:id="@+id/close"></Button>
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Close"
+                android:id="@+id/close"></Button>
+        </LinearLayout>
     </LinearLayout>
 
 
