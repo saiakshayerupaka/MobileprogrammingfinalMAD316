@@ -5,6 +5,11 @@ import java.util.List;
 
 public class Location {
 
+    @SerializedName("consolidated_weather")
+    List<Weather> consolidated_weather;
+    @SerializedName("title")
+    private String title;
+
     public Location(List<Weather> consolidated_weather, String title) {
         this.consolidated_weather = consolidated_weather;
         this.title = title;
@@ -19,9 +24,6 @@ public class Location {
         this.consolidated_weather = consolidated_weather;
     }
 
-    @SerializedName("consolidated_weather")
-    List<Weather> consolidated_weather;
-
     public String getTitle() {
         return title;
     }
@@ -29,9 +31,6 @@ public class Location {
     public void setTitle(String title) {
         this.title = title;
     }
-
-    @SerializedName("title")
-    private String title;
 
 
 }

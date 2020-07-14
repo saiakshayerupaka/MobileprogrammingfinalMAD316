@@ -1,4 +1,5 @@
 package com.example.weather_app;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -6,6 +7,36 @@ import java.io.Serializable;
 public class Weather implements Serializable {
 
 
+    @SerializedName("weather_state_name")
+    private String weather_state_name;
+    @SerializedName("min_temp")
+    private double min_temp;
+    @SerializedName("max_temp")
+    private double max_temp;
+    @SerializedName("wind_speed")
+    private double wind_speed;
+    @SerializedName("humidity")
+    private int humidity;
+    @SerializedName("predictability")
+    private int predictability;
+    @SerializedName("weather_state_abbr")
+    private String weather_state_abbr;
+    @SerializedName("applicable_date")
+    private String applicable_date;
+    @SerializedName("the_temp")
+    private double the_temp;
+
+    public Weather(String weather_state_name, double min_temp, double max_temp, double wind_speed, int humidity, int predictability, String weather_state_abbr, String applicable_date, double the_temp) {
+        this.weather_state_name = weather_state_name;
+        this.min_temp = min_temp;
+        this.max_temp = max_temp;
+        this.wind_speed = wind_speed;
+        this.humidity = humidity;
+        this.predictability = predictability;
+        this.weather_state_abbr = weather_state_abbr;
+        this.applicable_date = applicable_date;
+        this.the_temp = the_temp;
+    }
 
     public String getWeather_state_name() {
         return weather_state_name;
@@ -55,29 +86,6 @@ public class Weather implements Serializable {
         this.predictability = predictability;
     }
 
-    @SerializedName("weather_state_name")
-    private String weather_state_name;
-
-    @SerializedName("min_temp")
-    private double min_temp;
-
-    @SerializedName("max_temp")
-    private double max_temp;
-
-    @SerializedName("wind_speed")
-    private double wind_speed;
-
-    @SerializedName("humidity")
-    private int humidity;
-
-    @SerializedName("predictability")
-    private int predictability;
-
-
-
-    @SerializedName("weather_state_abbr")
-    private String weather_state_abbr;
-
     public String getApplicable_date() {
         return applicable_date;
     }
@@ -85,9 +93,6 @@ public class Weather implements Serializable {
     public void setApplicable_date(String applicable_date) {
         this.applicable_date = applicable_date;
     }
-
-    @SerializedName("applicable_date")
-    private String applicable_date;
 
     public String getWeather_state_abbr() {
         return weather_state_abbr;
@@ -97,18 +102,6 @@ public class Weather implements Serializable {
         this.weather_state_abbr = weather_state_abbr;
     }
 
-    public Weather(String weather_state_name, double min_temp, double max_temp, double wind_speed, int humidity, int predictability, String weather_state_abbr, String applicable_date, double the_temp) {
-        this.weather_state_name = weather_state_name;
-        this.min_temp = min_temp;
-        this.max_temp = max_temp;
-        this.wind_speed = wind_speed;
-        this.humidity = humidity;
-        this.predictability = predictability;
-        this.weather_state_abbr = weather_state_abbr;
-        this.applicable_date = applicable_date;
-        this.the_temp = the_temp;
-    }
-
     public double getThe_temp() {
         return the_temp;
     }
@@ -116,8 +109,5 @@ public class Weather implements Serializable {
     public void setThe_temp(double the_temp) {
         this.the_temp = the_temp;
     }
-
-    @SerializedName("the_temp")
-    private double the_temp;
 
 }
