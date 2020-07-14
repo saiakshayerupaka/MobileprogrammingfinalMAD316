@@ -81,6 +81,11 @@ public class HomeFragment extends Fragment {
             } else if (getArguments().getString("city").equals("toronto")) {
                 call = api.getToronto();
 
+            }else if (getArguments().getString("city").equals("newyork")) {
+                call = api.getNewYork();
+            } else if (getArguments().getString("city").equals("toronto")) {
+                call = api.getToronto();
+
             }
 
         }

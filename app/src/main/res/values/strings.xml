@@ -3,6 +3,8 @@
     <string name="montrel">Montreal</string>
     <string name="newyork">Newyork</string>
     <string name="toronto">Toronto</string>
+    <string name="vancouver">Vancouver</string>
+    <string name="mumbai">Mumbai</string>
     <string name="title_activity_main">Main</string>
 
     <string name="action_settings">Settings</string>

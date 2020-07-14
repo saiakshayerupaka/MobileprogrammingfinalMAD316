@@ -14,6 +14,9 @@
         <item
             android:id="@+id/loc_toronto"
             android:title="@string/toronto" />
+        <item android:title="@string/vancouver" android:id="@+id/loc_vancouver"/>
+
+        <item android:title="@string/mumbai" android:id="@+id/loc_mumbai"/>
     </group>
 
 
