@@ -18,8 +18,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull CustomAdapter.ViewHolder holder, int position) {
-
-    }
+    }//declared empty because it has no use in present but can be added in future
 
     @Override
     public int getItemCount() {
