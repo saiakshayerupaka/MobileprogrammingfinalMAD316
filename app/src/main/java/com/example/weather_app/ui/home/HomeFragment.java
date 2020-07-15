@@ -40,9 +40,10 @@ public class HomeFragment extends Fragment {
     private View root;
 
     private ImageView weather_image;
-    private TextView city, wind_speed, min_temp, max_temp, humidity, prediction, weather;
+    private TextView city,wind_speed,min_temp,max_temp,humidity,prediction,weather;
     private CustomAdapter customAdapter;
     private RecyclerView listView;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,7 +60,7 @@ public class HomeFragment extends Fragment {
         Call<Location> call;
         call = api.getMontrel();
 
-        if (getArguments() != null) {
+        if(getArguments()!=null) {
 
             if (getArguments().getString("city").equals("montreal")) {
                 call = api.getMontrel();
@@ -68,13 +69,15 @@ public class HomeFragment extends Fragment {
             } else if (getArguments().getString("city").equals("toronto")) {
                 call = api.getToronto();
 
-            } else if (getArguments().getString("city").equals("newyork")) {
-                call = api.getNewYork();
-            } else if (getArguments().getString("city").equals("toronto")) {
-                call = api.getToronto();
+            }
+            else if (getArguments().getString("city").equals("Vancouver")) {
+                call = api.getVancouver();
 
             }
+            else if (getArguments().getString("city").equals("Mumbai")) {
+                call = api.getMumbai();
 
+            }
         }
 
         call.enqueue(new Callback<Location>() {
@@ -114,7 +117,7 @@ public class HomeFragment extends Fragment {
 
 
                 customAdapter = new CustomAdapter(weathers, getActivity().getApplicationContext());
-                LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext(), LinearLayoutManager.HORIZONTAL,false);
                 listView.setLayoutManager(layoutManager);
                 listView.setAdapter(customAdapter);
                 customAdapter.setOnClickListner(new View.OnClickListener() {
@@ -122,14 +125,13 @@ public class HomeFragment extends Fragment {
                     public void onClick(View v) {
                         RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) v.getTag();
                         int position = viewHolder.getAdapterPosition();
-                        Toast.makeText(getActivity().getApplicationContext(), "" + position, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), ""+position, Toast.LENGTH_SHORT).show();
 
                         Intent in = new Intent(getActivity(), DayWeather.class);
                         in.putExtra("weather", (Serializable) weathers.get(position));
                         startActivity(in);
 
-                    }
-                });
+                    }});
 
                 Log.d("ee", "" + location.getConsolidated_weather().get(0).getHumidity());
                 Toast.makeText(getActivity(), "" + location.getConsolidated_weather().get(0).getHumidity(), Toast.LENGTH_LONG).show();
@@ -142,7 +144,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
 
     }
 
@@ -160,6 +161,9 @@ public class HomeFragment extends Fragment {
         prediction = root.findViewById(R.id.prediction);
         humidity = root.findViewById(R.id.humidity);
         listView = root.findViewById(R.id.main_recyclerView);
+
+
+
 
 
         return root;
