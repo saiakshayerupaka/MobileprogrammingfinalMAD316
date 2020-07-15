@@ -1,5 +1,6 @@
 package com.example.weather_app;
 
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.weatherapp.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -36,7 +35,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate( R.layout.listitem,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listitem,parent,false);
         return new ViewHolder(view);
     }
 
@@ -46,31 +45,31 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
 
-        SimpleDateFormat inFormat = new SimpleDateFormat("yyyy-mm-DD");
-        Date date = null;
-        try {
-            date = inFormat.parse(weathers.get(position).getApplicable_date());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        SimpleDateFormat outFormat = new SimpleDateFormat("EEEE");
-        String goal = outFormat.format(date);
+            SimpleDateFormat inFormat = new SimpleDateFormat("yyyy-mm-DD");
+            Date date = null;
+            try {
+                date = inFormat.parse(weathers.get(position).getApplicable_date());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            SimpleDateFormat outFormat = new SimpleDateFormat("EEEE");
+            String goal = outFormat.format(date);
 
-        if(position==0){
-            holder.dayname.setText("Today");
-        }
-        else if(position==1){
-            holder.dayname.setText("Tomorrow");
+            if(position==0){
+                holder.dayname.setText("Today");
+            }
+            else if(position==1){
+                holder.dayname.setText("Tomorrow");
 
-        }
-        else {
-            holder.dayname.setText(goal);
-        }
-        Glide.with(context)
-                .load("https://www.metaweather.com/static/img/weather/png/" + weathers.get(position).getWeather_state_abbr() + ".png")
-                .into(holder.dayweather_icon);
+            }
+            else {
+                holder.dayname.setText(goal);
+            }
+            Glide.with(context)
+                    .load("https://www.metaweather.com/static/img/weather/png/" + weathers.get(position).getWeather_state_abbr() + ".png")
+                    .into(holder.dayweather_icon);
 
-        holder.weather.setText(weathers.get(position).getWeather_state_name());
+            holder.weather.setText(weathers.get(position).getWeather_state_name());
 
 
     }
